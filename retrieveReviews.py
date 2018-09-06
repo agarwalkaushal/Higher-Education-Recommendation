@@ -8,5 +8,7 @@ def getReviews():
 driver = webdriver.Edge()
 driver.implicitly_wait(15)
 
-for i in range(0, len(a)):
-    driver.get(a[i])
+for i in range(0, len(colleges)):
+    colleges[i]=colleges[i]+"/reviews"
+    print(colleges[i])
+    #driver.get(a[i])

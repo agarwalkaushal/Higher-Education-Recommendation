@@ -11,7 +11,7 @@ def getColleges(url):
         c = c + 1
 
 driver = webdriver.Edge()
-driver.implicitly_wait(15)
+#driver.implicitly_wait(15)
 startWith = "https://www.shiksha.com/b-tech/colleges/b-tech-colleges-india"
 colleges = []
 c = 0
@@ -22,5 +22,4 @@ for i in range (2,11):
     url = driver.find_element_by_xpath("//a[@href][@data-page='"+str(i)+"']").get_attribute("href")
     getColleges(url)
 
-pprint(colleges)
-print(c)
+driver.close()
