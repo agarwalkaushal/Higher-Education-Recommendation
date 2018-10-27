@@ -18,7 +18,7 @@ c = 0
 driver.get(startWith)
 getColleges(startWith)
 
-for i in range (2,11):
+for i in range (2,3):
     url = driver.find_element_by_xpath("//a[@href][@data-page='"+str(i)+"']").get_attribute("href")
     getColleges(url)
 
