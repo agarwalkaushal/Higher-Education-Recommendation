@@ -1,6 +1,5 @@
 from retriveColleges import colleges
 from selenium import webdriver
-from pprint import pprint
 
 def getReviews(url):
     driver.get(url)
@@ -12,23 +11,26 @@ def getReviews(url):
             p = user.find(',')
             name = user[3:p]
             strings = user.split()
-            year = strings[4]
+            month = strings[3]
 
-            if reviews[i]:
-                review = reviews[i].text[13:]
-                row = []
-                row.append(name)
-                row.append(year)
-                row.append(review)
-
-                matrix.append(row)
+            if month == "Jan" or month == "Feb" or month == "Mar" or month == "Apr" or month == "May" or month == "Jun" or month == "Jul" or month == "Aug" or month == "Sep" or month == "Oct" or month == "Nov" or month == "Dec":
+                if user:
+                    if reviews[i]:
+                        review = reviews[i].text[13:]
+                        row = []
+                        row.append(name)
+                        row.append(month)
+                        row.append(review)
+                        matrix.append(row)
 
 matrix = [[]]
 
 driver = webdriver.Edge()
 driver.implicitly_wait(15)
 
-for i in range(0, len(colleges)):
+numberOfColleges = len(colleges)
+
+for i in range(0, numberOfColleges):
     colleges[i]=colleges[i]+"/reviews"
     getReviews(colleges[i])
 
