@@ -16,10 +16,10 @@ c = 0
 driver.get(startWith)
 getColleges(startWith)
 
-numberOfPages = 5
+numberOfPages = 2
 
-for i in range (2,numberOfPages):
-    url = driver.find_element_by_xpath("//a[@href][@data-page='"+str(i)+"']").get_attribute("href")
-    getColleges(url)
+# for i in range (2,numberOfPages):
+#     url = driver.find_element_by_xpath("//a[@href][@data-page='"+str(i)+"']").get_attribute("href")
+#     getColleges(url)
 
 driver.close()
