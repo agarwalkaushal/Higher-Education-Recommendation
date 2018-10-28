@@ -7,22 +7,19 @@ def getReviews(url):
     elem = driver.find_elements_by_class_name("rvwv1Heading")
     reviews = driver.find_elements_by_xpath("//p[strong = 'Placements :']")
 
-    if elem:
-
-        for i in range(0, len(elem)):
-
+    if reviews:
+        for i in range(0, len(reviews)):
             user = str(elem[i].find_element_by_css_selector("p").text)
-            p = user.find(',')
-            name = user[3:p]
             strings = user.split()
-            months = ["Jan","Feb","Mar","Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-
-            for k in range(0, len(strings)):
-                if strings[k] in months:
-                    month = strings[k]
-                    break
-
-            review = reviews[i].text[13:]
+            if user:
+                p = user.find(',')
+                name = user[3:p]
+                months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+                for k in range(0, len(strings)):
+                    if strings[k] in months:
+                        month = strings[k]
+                        break
+            review = reviews[i].text
             row = []
             row.append(name)
             row.append(month)
