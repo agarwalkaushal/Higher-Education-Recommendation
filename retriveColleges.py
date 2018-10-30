@@ -16,6 +16,8 @@ c = 0
 driver.get(startWith)
 getColleges(startWith)
 
+#Set number of pages accordingly till where you want your crawler to run
+#if numberOfPages = 9 around 900+ reviews are collected
 numberOfPages = 9
 
 for i in range (2,numberOfPages):

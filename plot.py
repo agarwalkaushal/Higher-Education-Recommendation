@@ -7,15 +7,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 data = {}
-
 data['Month'] = upload
 data['Subjectivity'] = subjectivity
 data['Polarity'] = polarity
-
 df = pd.DataFrame(data)
-
 grouped = df.groupby('Month')
-
 print("Subjectivity")
 print()
 print(grouped['Subjectivity'].agg([np.mean, np.std]))
